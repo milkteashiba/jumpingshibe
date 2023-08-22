@@ -25,7 +25,7 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `, [myTiles.transparency16], TileScale.Sixteen);
             case "level1":
-            case "level1":return tiles.createTilemap(hex`0a0008000606060202020202020206030205050505050102060303030101010501020601030303030101010206010101010301010102060404040403030304060707070707070707070707070707070707070707`, img`
+            case "level1":return tiles.createTilemap(hex`0a0008000404040202020202020204010203030303030102040101010101010301020401010101010101010204010101010101010102040101010101010101040606060606060606060605050505050505050505`, img`
 . . . . . . . . . . 
 . . . . . . . . . . 
 . . . . . . . . . . 
@@ -33,8 +33,8 @@ namespace myTiles {
 . . . . . . . . . . 
 . . . . . . . . . . 
 . . . . . . . . . . 
-. . . . . . . . . . 
-`, [myTiles.transparency16,sprites.castle.tileDarkGrass1,sprites.castle.tileDarkGrass2,sprites.castle.rock2,sprites.dungeon.hazardWater,sprites.castle.tileDarkGrass3,sprites.builtin.forestTiles0,sprites.dungeon.floorLight0], TileScale.Sixteen);
+2 2 2 2 2 2 2 2 2 2 
+`, [myTiles.transparency16,sprites.castle.tileDarkGrass1,sprites.castle.tileDarkGrass2,sprites.castle.tileDarkGrass3,sprites.builtin.forestTiles0,sprites.dungeon.floorLight0,sprites.dungeon.hazardWater], TileScale.Sixteen);
         }
         return null;
     })

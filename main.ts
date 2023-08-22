@@ -8,96 +8,86 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 })
 let projectile: Sprite = null
 let mySprite: Sprite = null
-game.splash("the dog")
+game.splash("shiba jump")
 tiles.setCurrentTilemap(tilemap`level1`)
 mySprite = sprites.create(img`
     bbbb........bbbb.................
-    c99bb......bb99b.................
-    c999bb....bb999c.................
-    c9b99bccccb99b9c.................
-    c9bb99bccb99bb9c.................
-    c93bddddddddb39c.................
-    c933dddddddd339c.................
-    c9d3dddddddd399c.................
-    cdddddd91199999c.................
-    cdddff91119ff99c........bbbbbb...
-    cdddff91111ff99c.......c999999bb.
-    cddd91111111999c......c99999999b.
-    cddd1111fff1199c.....c9991119999b
-    cdddc11fff1199bc.....c9911111999b
-    cdddcc111111c9bc.....c911dd11199b
-    cddd99bb33cc99bcc....cbddbbd1199c
-    cddd999b33cdddddbbccccbbdbbb1199c
-    cddd9999bbddddddddddddddddbb1999c
-    cddd911119ddddddddddddddddddb999c
-    cddd111111dddddddddddddddddddd9c.
+    cddbb......bbddb.................
+    cdddbb....bbdddc.................
+    cdbddbccccbddbdc.................
+    cdbbddbccbddbbdc.................
+    cd3bddddddddb3dc.................
+    cd33dddddddd33dc.................
+    cdd3dddddddd3ddc.................
+    cddddddd11dddddc.................
+    cdddffd111dffddc........bbbbbb...
+    cdddffd1111ffddc.......cddddddbb.
+    cdddd1111111dddc......cddddddddb.
+    cddd1111fff11ddc.....cddd111ddddb
+    cdddc11fff11ddbc.....cdd11111dddb
+    cdddcc111111cdbc.....cd11dd111ddb
+    cdddddbb33ccddbcc....cbddbbd11ddc
+    cddddddb33cdddddbbccccbbdbbb11ddc
+    cdddddddbbddddddddddddddddbb1dddc
+    cdddd1111dddddddddddddddddddbdddc
+    cddd111111dddddddddddddddddddddc.
     cddd1111111dddddddddddddddddddcc.
-    c9911111111dddddddddddddddddddc..
-    c99111111111ddddddddddddddddddc..
-    cb9111111111ddddddddddddddddddc..
-    .f9111111111ddddddddddddddddddc..
+    cdd11111111dddddddddddddddddddc..
+    cdd111111111ddddddddddddddddddc..
+    cbd111111111ddddddddddddddddddc..
+    .fd111111111ddddddddddddddddddc..
     .ff111111111ddddddddddddddddddc..
     ..fb11111111ddddddddddddddddddc..
     ...fb111111ddddddd111111ddddddc..
     ...fbbb1111dddddd11111111dddddc..
     ....fbbfffbddddccccccccccbddddc..
     ....fbbf..fdddc.....fbbf.cddddc..
-    ....fbbf..fdddc.....fbbf.ccddd9c.
-    ....fbbf..f99c.......fbf..cc999c.
-    ....fbbf..f99c.......fbbf..cc99c.
-    ....fbbf..f99c.......fbbf...c99c.
-    ....fbbf..f99c......fbbbf...c99c.
-    ...fbbbf..f99c......ffff....cb9c.
-    ...fbbf..f999c.............c999c.
-    ...ffff..f99cc.............c999c.
+    ....fbbf..fdddc.....fbbf.ccddddc.
+    ....fbbf..fddc.......fbf..ccdddc.
+    ....fbbf..fddc.......fbbf..ccddc.
+    ....fbbf..fddc.......fbbf...cddc.
+    ....fbbf..fddc......fbbbf...cddc.
+    ...fbbbf..fddc......ffff....cbdc.
+    ...fbbf..fdddc.............cdddc.
+    ...ffff..fddcc.............cdddc.
     .........fffc..............cccc..
     `, SpriteKind.Player)
 let mySprite2 = sprites.create(img`
-    ........................
-    ....ffffff..............
-    ..ffeeeef2f.............
-    .ffeeeef222f............
-    .feeeffeeeef...cc.......
-    .ffffee2222ef.cdc.......
-    .fe222ffffe2fcddc.......
-    fffffffeeeffcddc........
-    ffe44ebf44ecddc.........
-    fee4d41fddecdc..........
-    .feee4dddedccc..........
-    ..ffee44e4dde...........
-    ...f222244ee............
-    ...f2222e2f.............
-    ...f444455f.............
-    ....ffffff..............
-    .....fff................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
+    . . . . . . . . . . . . . . 
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d d d d d d d f . f d f 
+    f b d d b b d d 2 b f f d f 
+    . f 2 2 2 2 2 2 d b b d b f 
+    . f d d d d d d d f f f f . 
+    . . f d b d f d f . . . . . 
+    . . . f f f f f f . . . . . 
     `, SpriteKind.Enemy)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 5))
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(9, 5))
 mySprite.ay = 500
 game.onUpdateInterval(1500, function () {
     projectile = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . b 5 b . . . 
-        . . . . . . . . . b 5 b . . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . . . . b b 5 d 1 f 5 5 d f . . 
-        . . . . b 5 5 1 f f 5 d 4 c . . 
-        . . . . b 5 5 d f b d d 4 4 . . 
-        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
-        b d d d b b d 5 5 4 4 4 4 4 b . 
-        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
-        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
-        c b d c d 5 5 b 5 5 5 5 5 5 b . 
-        . c d d c c b d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 4 . . . . . 
+        . . . . 2 . . . . 4 4 . . . . . 
+        . . . . 2 4 . . 4 5 4 . . . . . 
+        . . . . . 2 4 d 5 5 4 . . . . . 
+        . . . . . 2 5 5 5 5 4 . . . . . 
+        . . . . . . 2 5 5 5 5 4 . . . . 
+        . . . . . . 2 5 4 2 4 4 . . . . 
+        . . . . . . 4 4 . . 2 4 4 . . . 
+        . . . . . 4 4 . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite2, randint(-140, -100), 0)
 })
